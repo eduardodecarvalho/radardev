@@ -12,4 +12,4 @@ const PointSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Dev', DevSchema);
+module.exports = PointSchema;
