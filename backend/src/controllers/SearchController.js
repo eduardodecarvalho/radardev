@@ -1,4 +1,4 @@
-const Dev = require('express');
+const Dev = require('../models/Dev');
 const parseStringAsArray = require('../utils/parseStringAsArray');
 
 module.exports = {
@@ -13,15 +13,15 @@ module.exports = {
             },
             location: {
                 $near: {
-                    $geometric: {
+                    $geometry: {
                         type: 'Point',
                         coordinates: [longitude, latitude],
                     },
-                    maxDistance: 10000;
+                    $maxDistance: 10000,
                 },
             },
         });
 
-        return response.json( { devs: []})
+        response.json(devs)
     }
 }
